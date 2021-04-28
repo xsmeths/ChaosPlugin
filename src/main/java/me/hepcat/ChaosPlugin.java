@@ -1,5 +1,6 @@
 package me.hepcat;
 
+import him.smeths.Experimental.oohElytra;
 import me.hepcat.Listeners.noMoCombust;
 import me.hepcat.Listeners.onJoinListener;
 import me.hepcat.Listeners.onProjectileHit;
@@ -20,6 +21,7 @@ public class ChaosPlugin extends JavaPlugin
         Bukkit.getPluginManager().registerEvents(new onJoinListener(), getPlugin());
         Bukkit.getPluginManager().registerEvents(new onProjectileHit(), getPlugin());
         Bukkit.getPluginManager().registerEvents(new noMoCombust(), getPlugin());
+        Bukkit.getPluginManager().registerEvents(new oohElytra(), getPlugin());
     }
     public static JavaPlugin getPlugin() {
         return instance;
