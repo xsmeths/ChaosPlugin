@@ -7,7 +7,12 @@ import org.bukkit.event.entity.ProjectileHitEvent;
 
 import java.util.Objects;
 
-public class onProjectileHit implements Listener {
+/**
+ * implementation of ProjectileHitEvent
+ */
+
+public class onProjectileHit implements Listener
+{
     @EventHandler
     public void BoomHit(ProjectileHitEvent e)
     {

@@ -7,19 +7,30 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 
-public class oohElytra implements Listener {
+/**
+ * implementation of PlayerMoveEvent
+ */
+
+public class oohElytra implements Listener
+{
     @EventHandler
-    public void onGlide(PlayerMoveEvent f) {
+    public void onGlide(PlayerMoveEvent f)
+    {
         Player player = f.getPlayer();
-        if (player.getInventory().getChestplate() != null && player.getInventory().getChestplate().getType() == Material.ELYTRA) {
+        if (player.getInventory().getChestplate() != null && player.getInventory().getChestplate().getType() == Material.ELYTRA)
+        {
             player.setGliding(true);
-        } else {
-            player.setGliding(false);
         }
-        if (player.isGliding()){
+        else if (player.isGliding() && player.getLocation().getWorld() != null)
+        {
             player.getLocation().getWorld().spawnEntity(player.getLocation(), EntityType.PRIMED_TNT);
-            player.getLocation().getWorld().spawnEntity(player.getLocation().subtract(1.0,1.0, 1.0), EntityType.PRIMED_TNT);
-            player.getLocation().getWorld().spawnEntity(player.getLocation().add(1.0,0.0, 1.0), EntityType.PRIMED_TNT);
+            player.getLocation().getWorld().spawnEntity(player.getLocation(), EntityType.PRIMED_TNT);
+            player.getLocation().getWorld().spawnEntity(player.getLocation().subtract(1.0, 1.0, 1.0), EntityType.PRIMED_TNT);
+            player.getLocation().getWorld().spawnEntity(player.getLocation().add(1.0, 0.0, 1.0), EntityType.PRIMED_TNT);
+        }
+        else
+        {
+            player.setGliding(false);
         }
     }
 }

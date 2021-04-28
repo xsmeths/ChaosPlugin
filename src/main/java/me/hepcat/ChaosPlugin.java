@@ -6,15 +6,18 @@ import me.hepcat.Listeners.onJoinListener;
 import me.hepcat.Listeners.onProjectileHit;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
+
 /**
  * main class
  */
+
 public class ChaosPlugin extends JavaPlugin
 {
     private static ChaosPlugin instance;
     public void onEnable()
     {
-        if (instance != null) {
+        if (instance != null)
+        {
             return;
         }
         instance = this;
@@ -23,7 +26,8 @@ public class ChaosPlugin extends JavaPlugin
         Bukkit.getPluginManager().registerEvents(new noMoCombust(), getPlugin());
         Bukkit.getPluginManager().registerEvents(new oohElytra(), getPlugin());
     }
-    public static JavaPlugin getPlugin() {
+    public static JavaPlugin getPlugin()
+    {
         return instance;
     }
 }
